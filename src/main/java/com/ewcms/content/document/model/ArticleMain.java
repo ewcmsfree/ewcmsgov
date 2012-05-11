@@ -7,6 +7,7 @@
 package com.ewcms.content.document.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,10 +17,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.Index;
 
 /**
@@ -60,6 +63,10 @@ public class ArticleMain implements Serializable {
 	@Column(name = "top")
 	@Index(name="idx_articlemain_top")
 	private Boolean top;
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, targetEntity = Citizen.class)
+	@JoinTable(name = "doc_articlermc_citizen", joinColumns = @JoinColumn(name = "articlermc_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "citizen_id", referencedColumnName = "id"))
+	@OrderBy(value = "id")
+	private List<Citizen> citizens;
 	
 	public ArticleMain(){
 		reference = false;
@@ -73,6 +80,14 @@ public class ArticleMain implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public List<Citizen> getCitizens() {
+		return citizens;
+	}
+
+	public void setCitizens(List<Citizen> citizens) {
+		this.citizens = citizens;
 	}
 
 	public Integer getChannelId() {

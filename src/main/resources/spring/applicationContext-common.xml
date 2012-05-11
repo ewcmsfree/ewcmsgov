@@ -12,9 +12,9 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="org.postgresql.Driver" />
-		<property name="jdbcUrl" value="jdbc:postgresql://127.0.0.1/ewcms_v2" />
+		<property name="jdbcUrl" value="jdbc:postgresql://172.16.0.148/ewcms1" />
 		<property name="user" value="postgres" />
-		<property name="password" value="123456" />
+		<property name="password" value="jict.org" />
 		<property name="initialPoolSize" value="5" />
 		<property name="minPoolSize" value="5" />
 		<property name="maxPoolSize" value="20" />

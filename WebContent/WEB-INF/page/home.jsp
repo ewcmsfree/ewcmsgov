@@ -252,6 +252,39 @@
                	    </div>
                	</div>
                 </sec:authorize>
+                
+				<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_ONLINEOFFICE">
+                <div title="在线办事" style="overflow:auto;">
+                     <div class="nav-item">
+                        <a href="javascript:_home.addTab('网上办事','plugin/onlineoffice/workingbody/index.do?channelId=6')">
+                            <img src="ewcmssource/image/kontact.png" style="border:0"/><br/>
+                            <span>网上办事</span>
+                        </a>
+                    </div>
+                </div>
+                </sec:authorize>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_INTERACTION">
+                <div title="互动服务" style="overflow:auto;">
+                    <div class="nav-item">
+                        <a href="javascript:_home.addTab('政民互动','plguin/interaction/index.do')">
+                            <img src="ewcmssource/image/kontact.png" style="border:0"/><br/>
+                            <span>政民互动</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="javascript:_home.addTab('留言审核','plguin/interaction/speak.do')">
+                            <img src="ewcmssource/image/kontact.png" style="border:0"/><br/>
+                            <span>留言审核</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="javascript:_home.addTab('网上咨询','plugin/advisor/index.do')">
+                            <img src="ewcmssource/image/kontact.png" style="border:0"/><br/>
+                            <span>网上咨询</span>
+                        </a>
+                    </div>
+                </div>
+                </sec:authorize>                
             </div>
         </div>
         <div region="center" style="overflow:hidden;">

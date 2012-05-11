@@ -13,12 +13,12 @@
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 		
 		<!-- Hibernate -->
-		<hibernate.entitymanager.version>3.6.10.Final</hibernate.entitymanager.version>
-		<hibernate.c3p0.version>3.6.10.Final</hibernate.c3p0.version>
-		<hibernate.jpamodelgen.version>1.2.0.Final</hibernate.jpamodelgen.version>
+		<hibernate.entitymanager.version>3.5.1-Final</hibernate.entitymanager.version>
+		<hibernate.c3p0.version>3.3.2.GA</hibernate.c3p0.version>
+		<hibernate.jpamodelgen.version>1.0.0.Final</hibernate.jpamodelgen.version>
 		
 		<!-- Springframework Core-->
-		<springframework.version>3.1.1.RELEASE</springframework.version>
+		<springframework.version>3.0.5.RELEASE</springframework.version>
 		
 		<!-- Springframework Security -->
 		<springframework.security.version>3.0.5.RELEASE</springframework.security.version>
@@ -47,7 +47,7 @@
 		<jackson.version>1.5.3</jackson.version>
 		
 		<!-- Database Connection -->
-		<postgresql.version>9.1-901.jdbc4</postgresql.version>
+		<postgresql.version>8.4-701.jdbc4</postgresql.version>
 		
 		<!-- Word Analyzer -->
 		<lucene.version>3.0.2</lucene.version>
@@ -79,7 +79,6 @@
 		<commons.collections.version>3.2.1</commons.collections.version>
 		
 		<!-- Servlet -->
-		<tomcat.catalina>6.0.35</tomcat.catalina>
 		<servlet.version>2.5</servlet.version>
 		<jsp.version>2.1</jsp.version>
 		
@@ -88,8 +87,6 @@
 		<jmock.junit.version>2.5.1</jmock.junit.version>
 		<mockito.all.version>1.8.5</mockito.all.version>
 		<unitils.version>3.3</unitils.version>
-		<objenesis.version>1.2</objenesis.version>
-		<asm.version>3.3.1</asm.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -504,24 +501,7 @@
 			<version>${commons.collections.version}</version>
 		</dependency>
 		
-		 <dependency>
-        	<groupId>org.apache.tomcat</groupId>
-        	<artifactId>catalina</artifactId>
-        	<version>${tomcat.catalina}</version>
-        	<scope>provided</scope>
-        </dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<version>${jsp.version}</version>
-			<scope>provided</scope>
-		</dependency>
+	
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -549,52 +529,18 @@
 		</dependency>
 		<dependency>
 			<groupId>org.unitils</groupId>
-			<artifactId>unitils-core</artifactId>
-			<version>${unitils.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.unitils</groupId>
 			<artifactId>unitils-mock</artifactId>
 			<version>${unitils.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.unitils</groupId>
-			<artifactId>unitils-easymock</artifactId>
-			<version>${unitils.version}</version>
-			<scope>test</scope>
-		</dependency>
+	
 		<dependency>
 			<groupId>org.unitils</groupId>
 			<artifactId>unitils-inject</artifactId>
 			<version>${unitils.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.unitils</groupId>
-			<artifactId>unitils-orm</artifactId>
-			<version>${unitils.version}</version>
-			<scope>test</scope>
-		</dependency>
-        <dependency>
-            <groupId>org.objenesis</groupId>
-            <artifactId>objenesis</artifactId>
-            <version>${objenesis.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>asm</groupId>
-            <artifactId>asm-analysis</artifactId>
-            <version>${asm.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>asm</groupId>
-            <artifactId>asm-tree</artifactId>
-            <version>${asm.version}</version>
-            <scope>test</scope>
-        </dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -721,8 +667,8 @@
 					<encoding>UTF-8</encoding>
 					<linebreakpos>-1</linebreakpos>
 					<failOnWarning>false</failOnWarning>
-					<sourceDirectory>${basedir}/WebContent/ewcmssource/</sourceDirectory>
-					<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/ewcmssource/</outputDirectory>
+					<sourceDirectory>${basedir}/WebContent/source/</sourceDirectory>
+					<outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/source/</outputDirectory>
 					<excludes>
 						<exclude>**/js/**/jquery.easyui.min.js</exclude>
 						<exclude>**/js/**/jquery.min.js</exclude>
@@ -738,8 +684,6 @@
 						<exclude>**/tiny_mce/themes/**/*.js</exclude>
 						<exclude>**/tiny_mce/utils/**/*.js</exclude>
 						<exclude>**/uploadify/**/swfobject.js</exclude>
-						<exclude>**/codemirror/**/*.js</exclude>
-						<exclude>**/codemirror/**/*.css</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
